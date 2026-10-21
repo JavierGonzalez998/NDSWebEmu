@@ -36,7 +36,9 @@ export default function App() {
       <p>Elige tu ROM <code>.nds</code>. Se ejecuta en tu dispositivo: el archivo no se sube a ningún sitio.</p>
       <label className="btn">
         Elegir ROM
-        <input type="file" accept=".nds,.zip" onChange={(e) => pick(e.target.files[0])} hidden />
+        {/* sin accept: iOS no conoce la extensión .nds y deshabilita el archivo en el selector.
+            Quien elija otra cosa recibe el error de readNdsHeader. */}
+        <input type="file" onChange={(e) => pick(e.target.files[0])} hidden />
       </label>
       <p className="hint">En PC también puedes arrastrar el archivo aquí.</p>
       {error && <p className="error">{error}</p>}
