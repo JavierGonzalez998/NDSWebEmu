@@ -1,0 +1,33 @@
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body {
+  background: #111; color: #eee;
+  font: 16px/1.5 system-ui, sans-serif;
+  /* la pantalla táctil de la DS necesita los gestos del canvas, no el scroll del navegador */
+  overscroll-behavior: none;
+}
+#root { display: flex; flex-direction: column; }
+
+.picker {
+  flex: 1; display: flex; flex-direction: column; gap: .75rem;
+  align-items: center; justify-content: center; text-align: center;
+  padding: max(1rem, env(safe-area-inset-top)) 1.25rem;
+}
+.picker h1 { font-size: clamp(1.4rem, 5vw, 2rem); margin: 0; }
+.picker p { margin: 0; max-width: 34rem; }
+.btn {
+  background: #e3350d; color: #fff; border-radius: .6rem;
+  padding: .85rem 1.6rem; font-weight: 600; cursor: pointer;
+  touch-action: manipulation;
+}
+.hint { color: #999; font-size: .85rem; }
+.error { color: #ff8a80; }
+
+.bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: calc(.4rem + env(safe-area-inset-top)) .75rem .4rem;
+  font-size: .8rem; color: #aaa; background: #000;
+}
+.bar button { background: #333; color: #eee; border: 0; border-radius: .4rem; padding: .4rem .7rem; }
+#game { flex: 1; min-height: 0; touch-action: none; }
